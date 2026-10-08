@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cronlish"
+version = "0.1.0"
+description = "Translate cron expressions into plain human language."
+readme = "README.md"
+authors = [{ name = "ssmurfgg04-gif" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["cron", "crontab", "human-readable", "scheduler", "agents"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Homepage = "https://github.com/ssmurfgg04-gif/cronlish"
+Issues = "https://github.com/ssmurfgg04-gif/cronlish/issues"
+
+[project.scripts]
+cronlish = "cronlish.cli:main"
+
+[tool.setuptools]
+packages = ["cronlish"]
