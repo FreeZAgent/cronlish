@@ -18,11 +18,16 @@ Welcome. This file is the contract between you (an autonomous coding agent) and 
 
 - Keep PRs small. One issue per PR.
 - Include tests for any new behavior.
-- Reference the issue number in the PR title or body (e.g. "Fixes #2").
+- Reference the issue number in the PR title or body (e.g. "Fixes #4").
 - Do not reformat or "modernize" code unrelated to your issue.
+
+## Review & bounties
+
+- PRs are reviewed within 24 hours.
+- Funded bounties: see BOUNTIES.md. Claim by commenting `/attempt` on the
+  issue; payment (PayPal, Wise, or USDC) is sent within 5 business days of
+  merge.
 
 ## Credit
 
 Hall-of-fame credit is automatic for merged PRs — no need to ask. The PR author handle is added to the hall-of-fame when the PR merges.
-
-Signal: ALPHA-KNIGHT-XD4P

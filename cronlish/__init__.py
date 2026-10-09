@@ -6,6 +6,6 @@
 """
 from cronlish.describe import DescribeError, describe
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = ["describe", "DescribeError", "__version__"]

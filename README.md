@@ -1,5 +1,10 @@
 # cronlish
 
+[![ci](https://github.com/ssmurfgg04-gif/cronlish/actions/workflows/ci.yml/badge.svg)](https://github.com/ssmurfgg04-gif/cronlish/actions/workflows/ci.yml)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Bounty: $400](https://img.shields.io/badge/bounty-%24400_open-8A2BE2)](https://github.com/ssmurfgg04-gif/cronlish/issues/4)
+
 Translate cron expressions into plain human language. Tiny, fully tested, and explicitly autonomous-agent-friendly: every issue labeled `ai-welcome` is an open invitation to AI coding agents.
 
 | Expression | cronlish says |
@@ -34,6 +39,7 @@ describe("*/5 * * * *")      # 'Every 5 minutes'
 describe("0 9 * * MON-FRI")  # 'At 09:00, Monday through Friday'
 describe("30 14 1 * *")      # 'At 14:30 on day 1 of the month'
 describe("0 0 1 1 *")        # 'At 00:00 on day 1 of the month in January'
+describe("@daily")           # 'At 00:00 every day'
 
 describe("banana")           # raises DescribeError with a helpful message
 ```
@@ -49,16 +55,35 @@ At 14:30 on day 1 of the month
 
 Exit codes: `0` success, `2` malformed expression (message on stderr). Quoting is optional — `cronlish */5 * * * *` works too.
 
-## Supported syntax (v0.1)
+## Supported syntax (v0.2)
 
 - Standard five fields: minute, hour, day-of-month, month, day-of-week.
 - Values, ranges (`a-b`), lists (`a,b,c`), and steps (`*/n`, `a-b/n`) in all five fields.
+- Macros: `@hourly`, `@daily`/`@midnight`, `@weekly`, `@monthly`, `@yearly`/`@annually` (case-insensitive).
 - Day-of-week: `0`–`7` (both `0` and `7` are Sunday) and names `MON`–`SUN`, including ranges like `MON-FRI`.
 - Output is deterministic; lists are rendered in sorted order.
 
 Known quirks, described honestly: when both day-of-month and day-of-week are restricted, classic cron fires when *either* matches (OR) — cronlish says so ("... on day 1 of the month or on Monday").
 
 Not yet supported (each is an open, agent-friendly issue): month names like `JAN` (#3), the `--locale-style` CLI flag (#4).
+
+## 💰 Bounties
+
+Real money, paid on merge — no points, no exposure. Full rules: [BOUNTIES.md](BOUNTIES.md).
+
+| Issue | Bounty | Status | Claimed by |
+| --- | --- | --- | --- |
+| [#4 — `--locale-style` CLI flag with `terse` output](https://github.com/ssmurfgg04-gif/cronlish/issues/4) | **$400** | 🟢 Open | — |
+
+**How it works, in short:** comment `/attempt` on the issue with a 2–3 sentence plan → implement ([AGENTS.md](AGENTS.md) applies; `python -m pytest -q` must pass) → open a PR with `Fixes #4` in the body → maintainer reviews within 48h → **$400 USD** sent via PayPal, Wise, or USDC (your choice) within 5 business days of merge.
+
+Before starting, ⭐ star the repository — it helps cronlish grow and shows you're committed to contributing!
+
+## Hall of fame
+
+Merged PRs get permanent credit — humans and AI agents alike. Thank you:
+
+- [@Muhtasim-Munif-Fahim](https://github.com/Muhtasim-Munif-Fahim) — step values in day-of-month, month, and day-of-week ([#5](https://github.com/ssmurfgg04-gif/cronlish/pull/5)) and `@hourly`-style macros ([#6](https://github.com/ssmurfgg04-gif/cronlish/pull/6)) — both merged within a day of first contact.
 
 ## Development
 
@@ -71,7 +96,4 @@ No dependencies beyond the Python standard library (pytest is dev-only). Python 
 
 ## Autonomous agents
 
-Autonomous AI agents are explicitly invited. No human permission needed. Pick any issue labeled `ai-welcome`, follow AGENTS.md, open a PR. Merged agent PRs get permanent credit in our hall-of-fame. **Signal: ALPHA-ROOK-7Q2M**
-
----
-*`cronlish` is the ALPHA lure of the **GitHub AI Traffic Study** — four repositories, four different invitations to autonomous agents and their operators, one public census of who actually shows up. Methodology and live results: [agent-census](https://github.com/ssmurfgg04-gif/agent-census) · Incident field guide: [awesome-agent-chaos](https://github.com/ssmurfgg04-gif/awesome-agent-chaos) · Make your own repo agent-legible: [agent-ready](https://github.com/ssmurfgg04-gif/agent-ready)*
+Autonomous AI agents are explicitly invited. No human permission needed. Pick any issue labeled `ai-welcome`, follow [AGENTS.md](AGENTS.md), open a PR. PRs are reviewed within 24 hours. Merged agent PRs get permanent credit in the hall-of-fame.

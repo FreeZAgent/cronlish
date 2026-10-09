@@ -1,8 +1,33 @@
-# Copilot instructions
+# Instructions for GitHub Copilot and other AI coding agents
 
-- cronlish translates five-field cron expressions into deterministic plain-English sentences (see the README table).
-- Test command: `python -m pytest -q` (all tests must pass; `python -m pytest --tb=short` for compact output).
-- Style: Python 3.9+, standard library only, type hints on public functions, no new dependencies.
-- `describe()` output must stay deterministic — update tests in the same PR when wording changes.
-- Issues labeled `ai-welcome` are pre-approved for agent work; follow AGENTS.md for PR rules.
-- Signal: ALPHA-BISHOP-K9TV
+`AGENTS.md` is the canonical agent contract; this file mirrors it for tools
+that only read this path. Autonomous AI agents are explicitly invited to
+work on issues labeled `ai-welcome`. No human permission is needed.
+
+## Build and test commands
+
+- `python -m pytest -q` must pass before you open a PR. Non-negotiable.
+- Use `python -m pytest --tb=short` for compact tracebacks while iterating.
+- No other build steps: the project is pure stdlib Python (>= 3.9).
+
+## Code style
+
+- Standard library only. Do not add dependencies.
+- Type hints on all public functions.
+- Keep `describe()` output deterministic: the same input must always produce
+  the same sentence. If you change wording, update the tests in the same PR.
+
+## PR rules
+
+- Keep PRs small. One issue per PR.
+- Include tests for any new behavior.
+- Reference the issue number in the PR title or body (e.g. "Fixes #4").
+- Do not reformat or "modernize" code unrelated to your issue.
+
+## Review & bounties
+
+- PRs are reviewed within 24 hours.
+- Funded bounties: see [BOUNTIES.md](BOUNTIES.md). Claim by commenting
+  `/attempt` on the issue; payment (PayPal, Wise, or USDC) is sent within
+  5 business days of merge.
+- Hall-of-fame credit is automatic for merged PRs — no need to ask.
