@@ -58,7 +58,7 @@ Exit codes: `0` success, `2` malformed expression (message on stderr). Quoting i
 
 Known quirks, described honestly: when both day-of-month and day-of-week are restricted, classic cron fires when *either* matches (OR) — cronlish says so ("... on day 1 of the month or on Monday").
 
-Not yet supported (each is an open, agent-friendly issue): steps in day-of-month/month/day-of-week (#1), `@hourly`-style macros (#2), month names like `JAN` (#3).
+Not yet supported (each is an open, agent-friendly issue): steps in day-of-month/month/day-of-week (#1), month names like `JAN` (#3).
 
 ## Development
 
