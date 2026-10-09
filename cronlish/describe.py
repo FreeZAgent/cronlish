@@ -3,8 +3,8 @@
 :func:`describe` turns a standard crontab line (minute, hour, day-of-month,
 month, day-of-week) into one stable English sentence; identical input always
 yields byte-identical output. Supported in v0.1: values, ranges (a-b), lists
-(a,b,c) and steps (*/n, a-b/n) in the minute and hour fields; values, ranges
-and lists elsewhere; weekday names MON-SUN (0 and 7 are both Sunday). Anything
+(a,b,c) and steps (*/n, a-b/n) in every field; values, ranges
+and lists; weekday names MON-SUN (0 and 7 are both Sunday). Anything
 else raises :class:`DescribeError` saying what to do instead.
 
 >>> describe("*/5 * * * *")
@@ -30,9 +30,9 @@ _FieldSpec = NamedTuple("_FieldSpec", [("name", str), ("lo", int), ("hi", int),
 _SPECS = (
     _FieldSpec("minute", 0, 59, True, False),
     _FieldSpec("hour", 0, 23, True, False),
-    _FieldSpec("day-of-month", 1, 31, False, False),
-    _FieldSpec("month", 1, 12, False, False),
-    _FieldSpec("day-of-week", 0, 7, False, True),
+    _FieldSpec("day-of-month", 1, 31, True, False),
+    _FieldSpec("month", 1, 12, True, False),
+    _FieldSpec("day-of-week", 0, 7, True, True),
 )
 # an arithmetic run of values: start, start+step, ..., end (all inclusive)
 _Run = NamedTuple("_Run", [("start", int), ("end", int), ("step", int)])
